@@ -1,6 +1,7 @@
 "use strict";
 
 import _ from "lodash";
+import './app.less'; 
 import './app.css'; 
 
 debugger;
