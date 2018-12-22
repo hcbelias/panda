@@ -11,25 +11,13 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(le|c)ss$/, // less or CSS
+        test: /\.(c|le)ss$/, // less or CSS
         use: [
-          { loader: devMode ? "style-loader" : MiniCssExtractPlugin.loader },
+          { loader: "style-loader" },
           { loader: "css-loader" },
           { loader: "less-loader" }
         ]
-      },
-      {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"]
       }
     ]
-  },
-  plugins: [
-    new MiniCssExtractPlugin({
-      // Options similar to the same options in webpackOptions.output
-      // both options are optional
-      filename: "[name].css",
-      chunkFilename: "[id].css"
-    })
-  ]
+  }
 };
