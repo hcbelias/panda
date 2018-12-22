@@ -9,7 +9,7 @@ debugger;
   function component() {
     debugger;
     let element = document.createElement("div");
-    element.innerHTML = _.join(["Hello", "webpack"], " ");
+    element.innerHTML = _.join(["Hell1111o", "webpack"], " ");
     element.classList.add('hello');
 
     return element;

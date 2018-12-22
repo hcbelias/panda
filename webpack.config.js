@@ -1,23 +1,22 @@
 const path = require("path");
 const devMode = process.env.NODE_ENV !== "production";
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.js",
+  target: "web",
+  entry: [
+    "babel-polyfill",
+    "./src/main.js",
+    "webpack-dev-server/client?http://localhost:8080"
+  ],
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "dist")
   },
-  plugins: [
-    new MiniCssExtractPlugin({
-      // Options similar to the same options in webpackOptions.output
-      // both options are optional
-      filename: devMode ? "[name].css" : "[name].[hash].css",
-      chunkFilename: devMode ? "[id].css" : "[id].[hash].css"
-    })
-  ],
+  devServer: {
+    watchContentBase: true,
+    compress: true
+  },
   module: {
     rules: [
       {
@@ -25,12 +24,7 @@ module.exports = {
         use: [
           { loader: devMode ? "style-loader" : MiniCssExtractPlugin.loader },
           { loader: "css-loader" },
-          {
-            loader: "less-loader",
-            options: {
-              javascriptEnabled: true
-            }
-          }
+          { loader: "less-loader" }
         ]
       }
     ]
