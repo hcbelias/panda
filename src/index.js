@@ -6,6 +6,7 @@ import Icon from "./icon.png";
 import { debug } from "util";
 
 debugger;
+//IIFI
 (function() {
   function getIcon() {
     let myIcon = new Image();
