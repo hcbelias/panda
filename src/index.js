@@ -3,7 +3,7 @@
 import _ from "lodash";
 import "./app.css";
 import Icon from "./icon.png";
-import { debug } from "util";
+import Data from "./data.json";
 
 debugger;
 //IIFI
@@ -34,4 +34,5 @@ debugger;
   }
   //adding component
   document.body.appendChild(component());
+  console.log(Data);
 })(); //IIF
