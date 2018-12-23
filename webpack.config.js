@@ -19,17 +19,30 @@ module.exports = {
   //},
   module: {
     rules: [
+      //Styles
       {
-        test: /\.css$/, // less or CSS
-        use: [
-          { loader: "style-loader" },
-          { loader: "css-loader" },
-          { loader: "less-loader" }
-        ]
+        test: /\.css$/,
+        use: [{ loader: "style-loader" }, { loader: "css-loader" }]
       },
+      //Images
       {
-        test: /\.(png|svg|jpg|gif|woff|woff2|eot|ttf|otf)$/,
+        test: /\.(png|svg|jpg|gif)$/,
         use: ["file-loader"]
+      },
+      //Fonts
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use: ["file-loader"]
+      },
+      //CSS
+      {
+        test: /\.(csv|tsv)$/,
+        use: ["csv-loader"]
+      },
+      //XML
+      {
+        test: /\.xml$/,
+        use: ["xml-loader"]
       }
     ]
   }
