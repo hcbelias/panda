@@ -14,6 +14,8 @@ Panda Payroll Test
 
 - To run the application: 
 
+
 ### BUILD
 
-- To generate a PROD version: npm run build
+- To generate a build: npm run build
+- There are two modes: development and production. Set the variable environment ENV_MODE to 'production' if you want the production mode.
