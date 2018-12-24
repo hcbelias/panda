@@ -2,8 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const devMode = process.env.ENV_MODE !== "production";
-const webpack = require('webpack');
-
+const webpack = require("webpack");
 
 module.exports = {
   mode: devMode ? "development" : "production",
@@ -59,10 +58,15 @@ module.exports = {
           }
         }
       },
-      //CSS
+      //HTML
       {
-        test: /\.(csv|tsv)$/,
-        use: ["csv-loader"]
+        test: /\.html$/,
+        use: { loader: "html-loader" }
+      },
+      //PUG - JADE
+      {
+        include: /\.pug$/,
+        loader: ["html-loader", "pug-html-loader"]
       }
     ]
   }
