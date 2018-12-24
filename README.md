@@ -10,12 +10,10 @@ Panda Payroll Test
 
 ### DEVELOP
 
-- To install npm dependencies
-  npm i
+- To install npm dependencies: npm i
 
-- To run the application
+- To run the application: 
 
 ### BUILD
 
-- To generate a PROD version
-  npm run build
+- To generate a PROD version: npm run build
