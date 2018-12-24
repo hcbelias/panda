@@ -1,6 +1,6 @@
 "use strict";
 
-import "./app.css";
+import "./app.scss";
 import HelpBox from "./components/help-box";
 import BikerForm from "./components/biker-form";
 import Breadcrumb from "./components/breadcrumb";

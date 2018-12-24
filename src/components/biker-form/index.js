@@ -1,4 +1,4 @@
-import './style.css';
+import './style.scss';
 
 class BikerForm extends HTMLElement {
   constructor() {

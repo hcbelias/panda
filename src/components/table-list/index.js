@@ -1,4 +1,4 @@
-import './style.css';
+import './style.scss';
 
 class TableList extends HTMLElement {
   constructor() {

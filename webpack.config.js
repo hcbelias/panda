@@ -15,8 +15,6 @@ module.exports = {
   entry: {
     polyfill: "babel-polyfill",
     app: "./src/index.js"
-
-    //"webpack-dev-server/client?http://localhost:8080"
   },
   output: {
     filename: "[name].bundle.js",
@@ -33,8 +31,12 @@ module.exports = {
     rules: [
       //Styles
       {
-        test: /\.css$/,
-        use: [{ loader: "style-loader" }, { loader: "css-loader" }]
+        test: /\.(c|sc)ss$/,
+        use: [
+          "style-loader", // creates style nodes from JS strings
+          "css-loader", // translates CSS into CommonJS
+          "sass-loader" // compiles Sass to CSS, using Node Sass by default
+        ]
       },
       //Images
       {
