@@ -2,14 +2,16 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const devMode = process.env.ENV_MODE !== "production";
-//const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const webpack = require('webpack');
+
 
 module.exports = {
   mode: devMode ? "development" : "production",
   target: "web",
   devtool: "inline-source-map",
   devServer: {
-    contentBase: "./dist"
+    contentBase: "./dist",
+    hot: true
   },
   entry: {
     polyfill: "babel-polyfill",
@@ -25,7 +27,8 @@ module.exports = {
     new CleanWebpackPlugin(["dist"]),
     new HtmlWebpackPlugin({
       title: "Panda Payroll"
-    })
+    }),
+    new webpack.HotModuleReplacementPlugin()
   ],
   module: {
     rules: [
