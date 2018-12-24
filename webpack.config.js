@@ -1,11 +1,16 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-//const devMode = process.env.NODE_ENV !== "production";
+const CleanWebpackPlugin = require("clean-webpack-plugin");
+const devMode = process.env.ENV_MODE !== "production";
 //const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
+  mode: devMode ? "development" : "production",
   target: "web",
+  devtool: "inline-source-map",
+  devServer: {
+    contentBase: "./dist"
+  },
   entry: {
     polyfill: "babel-polyfill",
     app: "./src/index.js"
