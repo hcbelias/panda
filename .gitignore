@@ -1,4 +1,2 @@
 node_modules
-/dist/assets/fonts/bold-italic.ttf
-/dist/assets/images/icon.png
-/dist/bundle.js
+dist

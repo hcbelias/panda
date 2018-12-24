@@ -1,22 +1,27 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 //const devMode = process.env.NODE_ENV !== "production";
 //const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   target: "web",
-  entry: [
-    "babel-polyfill",
-    "./src/index.js"
+  entry: {
+    polyfill: "babel-polyfill",
+    app: "./src/index.js"
+
     //"webpack-dev-server/client?http://localhost:8080"
-  ],
+  },
   output: {
-    filename: "bundle.js",
+    filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist")
   },
-  //  devServer: {
-  //   watchContentBase: true,
-  //  compress: true
-  //},
+  plugins: [
+    new CleanWebpackPlugin(["dist"]),
+    new HtmlWebpackPlugin({
+      title: "Panda Payroll"
+    })
+  ],
   module: {
     rules: [
       //Styles
