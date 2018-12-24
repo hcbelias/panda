@@ -12,7 +12,11 @@ Panda Payroll Test
 
 - To install npm dependencies: npm i
 
-- To run the application: 
+- To run the application:
+
+* Simple watcher: npm run watch
+* Livereload with Hot Module Replacement(HMR) - default URL http://localhost:8080/: npm start
+
 
 
 ### BUILD
