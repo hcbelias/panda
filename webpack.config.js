@@ -32,6 +32,7 @@ module.exports = {
       //Styles
       {
         test: /\.(c|sc)ss$/,
+        exclude: /node_modules/,
         use: [
           "style-loader", // creates style nodes from JS strings
           "css-loader", // translates CSS into CommonJS
@@ -41,6 +42,7 @@ module.exports = {
       //Images
       {
         test: /\.(png|svg|jpg|gif)$/,
+        exclude: /node_modules/,
         use: {
           loader: "file-loader",
           options: {
@@ -52,6 +54,7 @@ module.exports = {
       //Fonts
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
+        exclude: /node_modules/,
         use: {
           loader: "file-loader",
           options: {
@@ -63,12 +66,20 @@ module.exports = {
       //HTML
       {
         test: /\.html$/,
+        exclude: /node_modules/,
         use: { loader: "html-loader" }
       },
-      //PUG - JADE
+      //PUG
       {
         include: /\.pug$/,
+        exclude: /node_modules/,
         loader: ["html-loader", "pug-html-loader"]
+      },
+      //ESLINT
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "eslint-loader",
       }
     ]
   }

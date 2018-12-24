@@ -1,0 +1,19 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": "eslint:recommended",
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "globals": {
+    "require": false
+  },
+  "rules": {
+    "indent": ["warn", 2],
+    "quotes": ["warn", "single"],
+    "semi": ["error", "always"]
+  }
+}

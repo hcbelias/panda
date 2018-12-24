@@ -12,7 +12,7 @@ class HelpBox extends HTMLElement {
   }
 
   render() {
-    this.innerHTML = require("./template.pug");
+    this.innerHTML = require('./template.pug');
   }
 
 }

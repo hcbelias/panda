@@ -1,15 +1,15 @@
-"use strict";
+'use strict';
 
-import "./app.scss";
-import HelpBox from "./components/help-box";
-import BikerForm from "./components/biker-form";
-import Breadcrumb from "./components/breadcrumb";
-import Navbar from "./components/navbar";
-import TableList from "./components/table-list";
-import Footer from "./components/footer";
+import './app.scss';
+import HelpBox from './components/help-box';
+import BikerForm from './components/biker-form';
+import Breadcrumb from './components/breadcrumb';
+import Navbar from './components/navbar';
+import TableList from './components/table-list';
+import Footer from './components/footer';
 
 
-const customElementPrefix = "panda-";
+const customElementPrefix = 'panda-';
 
 customElements.define(`${customElementPrefix}help-box`, HelpBox);
 customElements.define(`${customElementPrefix}biker-form`, BikerForm);
