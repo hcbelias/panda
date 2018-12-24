@@ -1,14 +1,19 @@
-$block-name: 'footer';
+$block-name: "footer";
+$color-base: rgba(182, 182, 182, 1);
 .#{$block-name} {
-    background-color: black;
-    color: white;
     flex: flex-grow;
+    height: 200px;
+    text-transform: capitalize;
 }
 
 .#{$block-name}__title {
     float: left;
+    color: $color-base;
+    flex-grow: 1;
 }
 
-.#{$block-name}__version-text {
+.#{$block-name}__version {
     float: right;
+    color: $color-base;
+    font-weight: 800;
 }
