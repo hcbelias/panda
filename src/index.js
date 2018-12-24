@@ -8,9 +8,8 @@ import Navbar from './components/navbar';
 import TableList from './components/table-list';
 import Footer from './components/footer';
 
-
+//Creating custom elements
 const customElementPrefix = 'panda-';
-
 customElements.define(`${customElementPrefix}help-box`, HelpBox);
 customElements.define(`${customElementPrefix}biker-form`, BikerForm);
 customElements.define(`${customElementPrefix}breadcrumb`, Breadcrumb);

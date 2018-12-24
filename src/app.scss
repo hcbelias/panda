@@ -1,5 +1,9 @@
-.hello {
-  background-color: red;
-  background: url("./assets/images/icon.png");
-  font-family: "MyFontBoldItalic";
+.container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  &.column{
+    flex-direction: column;
+  }
 }

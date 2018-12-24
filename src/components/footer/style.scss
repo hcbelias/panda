@@ -1,4 +1,14 @@
-.footer {
+$block-name: 'footer';
+.#{$block-name} {
     background-color: black;
     color: white;
+    flex: flex-grow;
+}
+
+.#{$block-name}__title {
+    float: left;
+}
+
+.#{$block-name}__version-text {
+    float: right;
 }
