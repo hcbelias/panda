@@ -1,10 +1,10 @@
 @font-face {
   font-family: "MyFontBoldItalic";
-  src: url("./bold-italic.ttf") format("ttf");
+  src: url("./assets/fonts/bold-italic.ttf") format("ttf");
 }
 
 .hello {
   background-color: red;
-  background: url("./icon.png");
+  background: url("./assets/images/icon.png");
   font-family: "MyFontBoldItalic";
 }

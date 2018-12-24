@@ -27,22 +27,29 @@ module.exports = {
       //Images
       {
         test: /\.(png|svg|jpg|gif)$/,
-        use: ["file-loader"]
+        use: {
+          loader: "file-loader",
+          options: {
+            name: "[name].[ext]",
+            outputPath: "assets/images/"
+          }
+        }
       },
       //Fonts
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: ["file-loader"]
+        use: {
+          loader: "file-loader",
+          options: {
+            name: "[name].[ext]",
+            outputPath: "assets/fonts/"
+          }
+        }
       },
       //CSS
       {
         test: /\.(csv|tsv)$/,
         use: ["csv-loader"]
-      },
-      //XML
-      {
-        test: /\.xml$/,
-        use: ["xml-loader"]
       }
     ]
   }
