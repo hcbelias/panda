@@ -11,7 +11,6 @@ module.exports = function makeWebpackConfig(options) {
     target: "web",
     devServer: {
       contentBase: publishFolder,
-      hot: !PROD
     },
     entry: {
       polyfill: "babel-polyfill",
@@ -86,8 +85,11 @@ module.exports = function makeWebpackConfig(options) {
     }
   };
 
+  //Specific DEV configs
   if (!PROD) {
     config.devtool = "inline-source-map";
+    config.devServer.hot = true;
   }
+
   return config;
 };

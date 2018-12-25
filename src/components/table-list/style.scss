@@ -1,3 +1,36 @@
-.table-list{
-    background-color: blue;
+@import "../../common.scss";
+$block-name: "table-list";
+.#{$block-name} {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.#{$block-name}__header {
+  @extend .section-header;
+}
+
+.#{$block-name}__content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-transform: capitalize;
+  table {
+    width: 100%;
+    tr {
+      display: flex;
+      padding: 15px;
+    }
+    margin-bottom: 30px;
+  }
+}
+
+.#{$block-name}__tableHeaderRow {
+  background-color: rgba(52, 160, 5, 1);
+  color: white;
+}
+
+.#{$block-name}__tableHeader {
+  flex-grow: 2;
+  display: flex;
 }

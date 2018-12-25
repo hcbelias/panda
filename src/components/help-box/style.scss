@@ -1,13 +1,15 @@
-@import '../../variables';
-.help-box {
-    border-radius: 10px;
+@import '../../common';
+
+$block-name: "help-box";
+
+.#{$block-name} {
+    border-radius: 5px;
     border: 1px rgba(182,182,182, 0.6) solid;
     display: flex;
     flex-direction: column;
-    margin: auto;
 }
 
-.help-box__title{
+.#{$block-name}__title{
     background-color: rgba(182,182,182, 0.3);
     border-bottom: 1px rgba(182,182,182, 0.6) solid;
     padding: 10px;
@@ -15,8 +17,12 @@
     flex-grow: 1;
 }
 
-.help-box__closeButton{
+.#{$block-name}__closeButton{
     color: green;
     float: right;
     cursor: pointer;
+}
+
+.#{$block-name}__content{
+    margin: 15px;
 }
