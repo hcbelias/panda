@@ -3,12 +3,13 @@ $color-base: rgba(182, 182, 182, 1);
 .#{$block-name} {
   width: 100%;
   display: block;
-  border-top: 2px $color-base solid;
+  height: 2px;
+  background-color: rgba(182, 182, 182, 0.5);
 }
 
-.#{block-name}__span{
+.#{$block-name}__inner-bar{
   width: 100%;
   display: block;
-  border-top: 2px $color-base solid;
+  border-top: 1px $color-base solid;
 
 }

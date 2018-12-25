@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const devMode = process.env.ENV_MODE !== 'production';
 const webpack = require('webpack');
-const publishFolder = './docs';
+const publishFolder = './dist';
 module.exports = {
   mode: devMode ? 'development' : 'production',
   target: 'web',

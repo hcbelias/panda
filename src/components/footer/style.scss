@@ -1,5 +1,7 @@
+@import '../../variables';
+
 $block-name: "footer";
-$color-base: rgba(182, 182, 182, 1);
+
 .#{$block-name} {
     flex-grow: 1;
     height: 200px;
