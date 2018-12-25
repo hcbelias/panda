@@ -1,9 +1,11 @@
 $block-name: "footer";
 $color-base: rgba(182, 182, 182, 1);
 .#{$block-name} {
-    flex: flex-grow;
+    flex-grow: 1;
     height: 200px;
     text-transform: capitalize;
+    margin: auto;
+    border-top: 2px rgba(162, 162, 162, 1);
 }
 
 .#{$block-name}__title {

@@ -1,0 +1,14 @@
+$block-name: "divider";
+$color-base: rgba(182, 182, 182, 1);
+.#{$block-name} {
+  width: 100%;
+  display: block;
+  border-top: 2px $color-base solid;
+}
+
+.#{block-name}__span{
+  width: 100%;
+  display: block;
+  border-top: 2px $color-base solid;
+
+}
