@@ -10,9 +10,10 @@ module.exports = function makeWebpackConfig(options) {
     mode: PROD ? "production" : "development",
     target: "web",
     devServer: {
-      contentBase: publishFolder,
+      contentBase: publishFolder
     },
     entry: {
+      "font-awesome": "font-awesome/scss/font-awesome.scss",
       polyfill: "babel-polyfill",
       app: "./src/index.js"
     },
@@ -32,17 +33,20 @@ module.exports = function makeWebpackConfig(options) {
         //Styles
         {
           test: /\.(c|sc)ss$/,
-          exclude: /node_modules/,
           use: [
             "style-loader", // creates style nodes from JS strings
             "css-loader", // translates CSS into CommonJS
             "sass-loader" // compiles Sass to CSS, using Node Sass by default
           ]
         },
+        //font awesome loader
+        {
+          test: /font-awesome\.config\.js/,
+          use: [{ loader: "style-loader" }, { loader: "font-awesome-loader" }]
+        },
         //Images
         {
           test: /\.(png|svg|jpg|gif)$/,
-          exclude: /node_modules/,
           use: {
             loader: "file-loader",
             options: {
@@ -54,7 +58,6 @@ module.exports = function makeWebpackConfig(options) {
         //Fonts
         {
           test: /\.(woff|woff2|eot|ttf|otf)$/,
-          exclude: /node_modules/,
           use: {
             loader: "file-loader",
             options: {

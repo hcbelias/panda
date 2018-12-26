@@ -1,28 +1,35 @@
 @import '../../common';
-
 $block-name: "help-box";
-
 .#{$block-name} {
-    border-radius: 5px;
-    border: 1px rgba(182,182,182, 0.6) solid;
+    border-radius: 3px;
+    border: 1px rgba(182, 182, 182, 0.5) solid;
     display: flex;
     flex-direction: column;
 }
 
-.#{$block-name}__title{
-    background-color: rgba(182,182,182, 0.3);
-    border-bottom: 1px rgba(182,182,182, 0.6) solid;
+.#{$block-name}__title {
+    background-color: rgba(182, 182, 182, 0.2);
+    border-bottom: 1px rgba(182, 182, 182, 0.5) solid;
     padding: 10px;
     font-weight: 600;
     flex-grow: 1;
 }
 
-.#{$block-name}__closeButton{
+.#{$block-name}__closeButton {
     color: green;
     float: right;
     cursor: pointer;
 }
 
-.#{$block-name}__content{
+.#{$block-name}__content {
     margin: 15px;
+    color: #9a9a9a;
+    .fa {
+        font-size: 100px;
+        float: left;
+        margin: 0 15px 0px 0;
+    }
+}
+.#{$block-name}__mainParagraph{
+    margin-top: 0;
 }
