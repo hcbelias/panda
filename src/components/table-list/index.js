@@ -1,28 +1,37 @@
-import './style.scss';
+import "./style.scss";
 //private methods
 function addRow(table) {
   let newRow = table.insertRow();
-  newRow.classList.add('table-list__tableRow');
+  newRow.classList.add("table-list__tableRow");
   return newRow;
 }
 
 function addColumn(row, value) {
   let column = row.insertCell();
-  column.classList.add('table-list__tableColumn');
+  column.classList.add("table-list__tableColumn");
   column.innerText = value;
+  return column;
+}
+
+function addDateColumn(row, date) {
+  let column = row.insertCell();
+  column.classList.add("table-list__tableColumn");
+  let formattedDate = `<span class="table-list__dateColumn">${date.toLocaleDateString("en-US")}</span>`;
+  let formattedTime = `<span class="table-list__timeColumn>${date.toLocaleTimeString("en-US")}</span>`;
+  column.innerHTML = formattedDate + formattedTime;
   return column;
 }
 
 function getRideInGroupLabel(value) {
   switch (value) {
-  case 0:
-    return 'Always';
-  case 1:
-    return 'Sometimes';
-  case 2:
-    return 'Never';
-  default:
-    return '--';
+    case 0:
+      return "Always";
+    case 1:
+      return "Sometimes";
+    case 2:
+      return "Never";
+    default:
+      return "--";
   }
 }
 
@@ -55,13 +64,13 @@ function getDaysOfTheWeekLabel(value) {
     hasFriday &&
     hasSaturday;
 
-  let label = '';
+  let label = "";
   if (isWeekDays) {
-    label = 'Week days';
+    label = "Week days";
   } else if (isWeekend) {
-    label = 'Weekends';
+    label = "Weekends";
   } else if (isEveryday) {
-    label = 'Every Day';
+    label = "Every Day";
   } else {
     if (hasSunday) label = `${label}, Sun`;
     if (hasMonday) label = `${label}, Mon`;
@@ -86,9 +95,9 @@ class TableList extends HTMLElement {
   }
 
   render() {
-    this.innerHTML = require('./template.pug');
-    let mockData = require('./data.json');
-    let table = document.getElementById('dynamicTable');
+    this.innerHTML = require("./template.pug");
+    let mockData = require("./data.json");
+    let table = document.getElementById("dynamicTable");
     let tableBody = table.createTBody();
     mockData.data.forEach(item => {
       let newRow = addRow(tableBody);
@@ -97,7 +106,8 @@ class TableList extends HTMLElement {
       addColumn(newRow, item.city);
       addColumn(newRow, getRideInGroupLabel(item.rideInGroup));
       addColumn(newRow, getDaysOfTheWeekLabel(item.daysOfTheWeek));
-      addColumn(newRow, item.registrationDay);
+      let date = new Date(item.registrationDay);
+      addDateColumn(newRow, date);
     });
   }
 }
