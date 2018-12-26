@@ -15,26 +15,38 @@ $block-name: "table-list";
     flex-direction: row;
     justify-content: space-around;
     text-transform: capitalize;
-    table {
-        width: 100%;
-        tr {
-            display: flex;
-            padding: 15px;
+}
+
+.#{$block-name}__table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: auto;
+    display: block;
+    min-width: 400px;
+    tr {
+        padding: 15px;
+        .fa-trash-o {
+            display: table-column;
         }
-        margin-bottom: 30px;
     }
+    margin-bottom: 30px;
 }
 
 .#{$block-name}__tableHeaderRow {
     background-color: rgba(52, 160, 5, 1);
     color: white;
-    display: flex;
-    flex-grow: 2;
 }
 
 .#{$block-name}__tableColumn {
-    flex-grow: 2;
-    display: flex;
+    padding: 15px;
+    display: table-cell;
+    text-align: inherit;
+}
+
+.#{$block-name}__tableDeleteColumn {
+    display: table-cell;
+    text-align: center;
+    width: 45px;
 }
 
 .#{$block-name}__tableRow {
@@ -43,5 +55,28 @@ $block-name: "table-list";
     }
     &:hover {
         background: rgba(52, 160, 5, 0.3);
+        transition: 0.3s;
+        .fa-trash-o {
+            display: block;
+            cursor: pointer;
+        }
+    }
+}
+
+.#{$block-name}__dateColumn {
+    padding-right: 5px;
+}
+
+.#{$block-name}__timeColumn {
+    font-size: 11px;
+    color: rgba(84, 79, 79, 0.5);
+    font-weight: 500;
+}
+
+/*   MEDIA QUERY DESKTOP   */
+
+@media screen and (min-width: 400px) {
+    .#{$block-name}__table {
+        display: table;
     }
 }

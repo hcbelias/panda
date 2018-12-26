@@ -1,37 +1,54 @@
-import "./style.scss";
+import './style.scss';
 //private methods
 function addRow(table) {
   let newRow = table.insertRow();
-  newRow.classList.add("table-list__tableRow");
+  newRow.classList.add('table-list__tableRow');
   return newRow;
 }
 
 function addColumn(row, value) {
   let column = row.insertCell();
-  column.classList.add("table-list__tableColumn");
+  column.classList.add('table-list__tableColumn');
   column.innerText = value;
+  return column;
+}
+
+function addDeleteColumn(row, index) {
+  let column = row.insertCell();
+  column.classList.add('table-list__tableDeleteColumn');
+  let buttonDelete = document.createElement('i');
+  buttonDelete.classList.add('fa');
+  buttonDelete.classList.add('fa-trash-o');
+  buttonDelete.setAttribute('title', `Remove row: ${index + 1}`);
+  column.appendChild(buttonDelete);
   return column;
 }
 
 function addDateColumn(row, date) {
   let column = row.insertCell();
-  column.classList.add("table-list__tableColumn");
-  let formattedDate = `<span class="table-list__dateColumn">${date.toLocaleDateString("en-US")}</span>`;
-  let formattedTime = `<span class="table-list__timeColumn>${date.toLocaleTimeString("en-US")}</span>`;
-  column.innerHTML = formattedDate + formattedTime;
+  column.classList.add('table-list__tableColumn');
+  let spanDate = document.createElement('span');
+  spanDate.classList.add('table-list__dateColumn');
+  spanDate.innerText = date.toLocaleDateString('en-US');
+  let spanTime = document.createElement('span');
+  spanTime.classList.add('table-list__timeColumn');
+  spanTime.innerText = date.toLocaleTimeString('en-US');
+
+  column.appendChild(spanDate);
+  column.appendChild(spanTime);
   return column;
 }
 
 function getRideInGroupLabel(value) {
   switch (value) {
-    case 0:
-      return "Always";
-    case 1:
-      return "Sometimes";
-    case 2:
-      return "Never";
-    default:
-      return "--";
+  case 0:
+    return 'Always';
+  case 1:
+    return 'Sometimes';
+  case 2:
+    return 'Never';
+  default:
+    return '--';
   }
 }
 
@@ -64,13 +81,13 @@ function getDaysOfTheWeekLabel(value) {
     hasFriday &&
     hasSaturday;
 
-  let label = "";
+  let label = '';
   if (isWeekDays) {
-    label = "Week days";
+    label = 'Week days';
   } else if (isWeekend) {
-    label = "Weekends";
+    label = 'Weekends';
   } else if (isEveryday) {
-    label = "Every Day";
+    label = 'Every Day';
   } else {
     if (hasSunday) label = `${label}, Sun`;
     if (hasMonday) label = `${label}, Mon`;
@@ -95,11 +112,11 @@ class TableList extends HTMLElement {
   }
 
   render() {
-    this.innerHTML = require("./template.pug");
-    let mockData = require("./data.json");
-    let table = document.getElementById("dynamicTable");
+    this.innerHTML = require('./template.pug');
+    let { data } = require('./data.json'); // getting property data from external source
+    let table = document.getElementById('dynamicTable');
     let tableBody = table.createTBody();
-    mockData.data.forEach(item => {
+    data.forEach((item, index) => {
       let newRow = addRow(tableBody);
       addColumn(newRow, item.name);
       addColumn(newRow, item.email);
@@ -108,6 +125,12 @@ class TableList extends HTMLElement {
       addColumn(newRow, getDaysOfTheWeekLabel(item.daysOfTheWeek));
       let date = new Date(item.registrationDay);
       addDateColumn(newRow, date);
+      let deleteButton = addDeleteColumn(newRow, index);
+      let clickFunction = function customClickFunction(event) {
+        event.currentTarget.parentElement.remove();
+      };
+
+      deleteButton.addEventListener('click', clickFunction);
     });
   }
 }
