@@ -29,7 +29,7 @@ $block-name: "breadcrumb";
 
 .#{$block-name}__section {
     background: $color-base-light;
-    color: $color-base;
+    color: #8a8a8a;
 }
 
 .#{$block-name}__mainSection {
@@ -64,6 +64,7 @@ $block-name: "breadcrumb";
 .#{$block-name}__subTitle {
     font-weight: 400;
     font-size: 14px;
+    color: rgba(138, 138, 138, 0.5);
 }
 
 .#{$block-name}__info {

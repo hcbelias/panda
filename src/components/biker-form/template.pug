@@ -1,3 +1,27 @@
-.biker-form
-  p Biker form 
+.biker-form.container
+  .biker-form__header user registration
+  .biker-form__content
+    form#biker-form.biker-form__form(name='user-registration')
+      .biker-form__inputGroup
+        .biker-form__input
+          label(for='fullName') Full name
+          input(name='fullName' )
+        .biker-form__input
+          label(for='email') E-mail
+          input(name='email' )
+        .biker-form__input
+          label(for='city') City
+          input(name='city' )
+      .biker-form__inputGroup
+        .biker-form__input
+          label(for='fullName') Ride in Group?
+          input(name='fullName' )
+        .biker-form__input
+          label(for='email') Days of the week
+          input(name='email' )
+        .biker-form__buttonGroup
+          .biker-form__button
+            button.biker-form__button-cancel(id='biker-form__cancelButton') Cancel
+          .biker-form__button
+            button.biker-form__button-save(id='biker-form__saveButton') Save
 

@@ -1,3 +1,97 @@
-.biker-form{
-    background-color: palevioletred;
+@import "../../common.scss";
+$block-name: "biker-form";
+.#{$block-name} {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.#{$block-name}__header {
+    @extend .section-header;
+}
+
+.#{$block-name}__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-transform: capitalize;
+}
+
+.#{$block-name}__form {
+    margin: 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.#{$block-name}__inputGroup {
+    flex-grow: 1;
+    padding-left: 0;
+}
+
+.#{$block-name}__input {
+    display: FLEX;
+    flex-direction: column;
+    margin: 20px 0;
+}
+
+.#{$block-name}__button {
+    width: 100%;
+    display: flex;
+    margin-top: 15px;
+    button {
+        display: flex;
+        flex-grow: 1;
+        border-radius: 3px;
+        font-size: 18px;
+        font-weight: 300px;
+        line-height: 20px;
+        margin-left: 10px;
+        text-align: center;
+        max-width: 110px;
+        border: white;
+        cursor: pointer;
+        padding: 10px 15px;
+        font-weight: 700;
+        letter-spacing: 0.3px;
+    }
+}
+
+.#{$block-name}__button-cancel {
+    &:hover {
+        background-color: $color-base;
+    }
+}
+
+.#{$block-name}__button-save {
+    background-color: $color-panda;
+    color: white;
+    &:hover{
+        background-color: rgba($color: $color-panda, $alpha: 0.6)
+    }
+}
+
+/*   MEDIA QUERIES   */
+
+@media screen and (min-width: 600px) {
+    .#{$block-name}__form {
+        flex-direction: row;
+    }
+}
+
+@media screen and (min-width: 490px) {
+    .#{$block-name}__inputGroup {
+        padding: 20px;
+        button {
+            flex-direction: row;
+        }
+    }
+    .#{$block-name}__buttonGroup,
+    .#{$block-name}__button {
+        display: flex;
+        flex-direction: row;
+    }
+    .#{$block-name}__buttonGroup {
+        float: right;
+    }
 }
