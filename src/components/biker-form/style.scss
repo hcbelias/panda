@@ -33,6 +33,31 @@ $block-name: "biker-form";
     display: FLEX;
     flex-direction: column;
     margin: 20px 0;
+    label{
+        padding-bottom: 10px;
+        font-size: 14px;
+        font-weight: 700;
+    }
+    input{
+        padding: 5px;
+        line-height: 20px;
+        border: 1px $color-base-light solid;
+        border-radius: 3px;
+        box-shadow: none;
+        &:focus {
+            outline-color: $color-panda;
+            outline-width: 3px;
+        }
+
+    }
+}
+
+.#{$block-name}__checkboxGroup{
+    flex-direction: row;
+    input{
+        margin: 20px;
+        margin-left: 60px;
+    }
 }
 
 .#{$block-name}__button {
@@ -66,7 +91,7 @@ $block-name: "biker-form";
 .#{$block-name}__button-save {
     background-color: $color-panda;
     color: white;
-    &:hover{
+    &:hover {
         background-color: rgba($color: $color-panda, $alpha: 0.6)
     }
 }
@@ -81,7 +106,7 @@ $block-name: "biker-form";
 
 @media screen and (min-width: 490px) {
     .#{$block-name}__inputGroup {
-        padding: 20px;
+        padding: 20px 20px 20px 0;
         button {
             flex-direction: row;
         }

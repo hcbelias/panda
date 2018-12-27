@@ -14,8 +14,14 @@
           input(name='city' )
       .biker-form__inputGroup
         .biker-form__input
-          label(for='fullName') Ride in Group?
-          input(name='fullName' )
+          label(for='rideInGroup') Ride in Group?
+          .biker-form__checkboxGroup
+            input(type="radio" name="rideInGroup" value="0") 
+            | Always
+            input(type="radio" name="rideInGroup" value="1") 
+            | Sometimes
+            input(type="radio" name="rideInGroup" value="2") 
+            | Never
         .biker-form__input
           label(for='email') Days of the week
           input(name='email' )
