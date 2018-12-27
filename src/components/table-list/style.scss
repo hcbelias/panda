@@ -33,7 +33,7 @@ $block-name: "table-list";
 }
 
 .#{$block-name}__tableHeaderRow {
-    background-color: rgba(52, 160, 5, 1);
+    background-color: $color-panda;
     color: white;
 }
 
