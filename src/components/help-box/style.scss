@@ -2,25 +2,31 @@
 $block-name: "help-box";
 .#{$block-name} {
     border-radius: 3px;
-    border: 1px rgba(182, 182, 182, 0.5) solid;
+    border: 1px $color-base-semi-light solid;
     display: flex;
     flex-direction: column;
-    transition: all .6s .2s ease;
+    margin-top: 20px;
+    transition: all .9s .9s ease;
 }
 
 .#{$block-name}__title {
-    background-color: rgba(182, 182, 182, 0.2);
-    border-bottom: 1px rgba(182, 182, 182, 0.5) solid;
+    background-color: $color-base-light;
+    border-bottom: 1px $color-base-semi-light solid;
     padding: 10px;
     font-weight: 600;
     flex-grow: 1;
-    transition: all .6s;
+    transition: all .9s;
 }
 
 .#{$block-name}__closeButton {
-    color: green;
+    color: $color-panda;
     float: right;
     font-size: 15px;
+    span{
+        text-transform: lowercase;
+        font-size: 14px;
+        font-weight: 100;
+    }
     cursor: pointer;
     .fa {
         padding-left: 10px;
@@ -31,7 +37,7 @@ $block-name: "help-box";
     color: #9a9a9a;
     max-height: 0;
     overflow: hidden;
-    transition: all .6s;
+    transition: all .9s;
     .fa {
         font-size: 100px;
         float: left;

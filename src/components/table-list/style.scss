@@ -51,7 +51,7 @@ $block-name: "table-list";
 
 .#{$block-name}__tableRow {
     &:nth-child(odd) {
-        background: rgba(182, 182, 182, 0.2);
+        background: $color-base-light;
     }
     &:hover {
         background: rgba(52, 160, 5, 0.3);

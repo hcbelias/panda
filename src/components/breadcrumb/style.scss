@@ -1,3 +1,72 @@
-.breadcrumb{
-    background-color: yellow;
+@import '../../common';
+$block-name: "breadcrumb";
+.#{$block-name} {
+    display: flex;
+    flex-direction: column;
+}
+
+.#{$block-name}__active {
+    color: $color-panda;
+}
+
+.#{$block-name}__path {
+    line-height: 40px;
+    .fa,
+    span {
+        font-weight: 400;
+        margin: 3px;
+        padding: 3px;
+        &:hover {
+            color: $color-panda;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+    .fa {
+        font-size: 20px;
+    }
+}
+
+.#{$block-name}__section {
+    background: $color-base-light;
+    color: $color-base;
+}
+
+.#{$block-name}__mainSection {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    float: left;
+    flex-grow: 1;
+}
+
+.#{$block-name}__secondarySection {
+    float: right;
+}
+
+.#{$block-name}__infoContainer {
+    padding: 20px;
+    display: flex;
+    .fa {
+        float: left;
+        font-size: 30px;
+        padding: 3px;
+        margin: 5px;
+    }
+}
+
+.#{$block-name}__title {
+    font-weight: 900;
+    font-size: 16px;
+
+}
+
+.#{$block-name}__subTitle {
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.#{$block-name}__info {
+    display: flex;
+    flex-direction: column;
 }
