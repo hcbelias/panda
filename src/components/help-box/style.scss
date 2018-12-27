@@ -5,6 +5,7 @@ $block-name: "help-box";
     border: 1px rgba(182, 182, 182, 0.5) solid;
     display: flex;
     flex-direction: column;
+    transition: all .6s .2s ease;
 }
 
 .#{$block-name}__title {
@@ -13,23 +14,40 @@ $block-name: "help-box";
     padding: 10px;
     font-weight: 600;
     flex-grow: 1;
+    transition: all .6s;
 }
 
 .#{$block-name}__closeButton {
     color: green;
     float: right;
+    font-size: 15px;
     cursor: pointer;
+    .fa {
+        padding-left: 10px;
+    }
 }
 
 .#{$block-name}__content {
-    margin: 15px;
     color: #9a9a9a;
+    max-height: 0;
+    overflow: hidden;
+    transition: all .6s;
     .fa {
         font-size: 100px;
         float: left;
         margin: 0 15px 0px 0;
     }
 }
-.#{$block-name}__mainParagraph{
+
+.#{$block-name}__content-open {
+    height: auto;
+    max-height: 500px;
+}
+
+.#{$block-name}__mainParagraph {
     margin-top: 0;
+}
+
+.#{$block-name}__mainContent{
+    padding: 15px;
 }
