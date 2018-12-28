@@ -1,5 +1,5 @@
 # PANDA
-Panda Payroll Test
+Panda Payroll Test made using VanillaJS - HTML5 - WebComponents - Webpack
 
 ## Getting Started
 
@@ -11,15 +11,14 @@ Panda Payroll Test
 ### DEVELOP
 
 - To install npm dependencies: npm i
-
-- To run the application:
-
-* Simple watcher: npm run watch
-* Livereload with Hot Module Replacement(HMR) - default URL http://localhost:8080/: npm start
-
-
+- To run the application: npm start
 
 ### BUILD
 
-- To generate a build: npm run build
-- There are two modes: development and production. Set the variable environment ENV_MODE to 'production' if you want the production mode.
+- To generate a build as PROD version: npm run build
+- To generate a build as DEV version: npm run build-dev
+
+## App Example
+
+- You can check this app here:  https://hcbelias.github.io/panda
+
