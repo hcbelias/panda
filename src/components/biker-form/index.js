@@ -13,7 +13,7 @@ class BikerForm extends HTMLElement {
 
   render() {
     this.innerHTML = require('./template.pug');
-   //  let helpHeader = document.getElementById(helpButtonId);
+    //  let helpHeader = document.getElementById(helpButtonId);
     //helpHeader.addEventListener("click", this.collapseHelperBox(helpHeader));
   }
 

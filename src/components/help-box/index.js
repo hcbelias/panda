@@ -1,7 +1,7 @@
-import "./style.scss";
-const helpButtonId = "help-box-header-button";
-const helpContentOpenClass = "help-box__content-open";
-const helpBoxContentContainerId = "help-box-content-container";
+import './style.scss';
+const helpButtonId = 'help-box-header-button';
+const helpContentOpenClass = 'help-box__content-open';
+const helpBoxContentContainerId = 'help-box-content-container';
 
 class HelpBox extends HTMLElement {
   constructor() {
@@ -13,22 +13,22 @@ class HelpBox extends HTMLElement {
   }
 
   collapseHelperBox(helpHeader) {
-    const openAttribute = "is-open";
+    const openAttribute = 'is-open';
     let isOpen = !helpHeader.getAttribute(openAttribute);
     let helpBoxContentContainer = document.getElementById(
       helpBoxContentContainerId
     );
-    helpHeader.innerText = "";
+    helpHeader.innerText = '';
 
-    const text = isOpen ? "Close" : "Open";
-    const cssClass = isOpen ? "fa-long-arrow-up" : "fa-long-arrow-down";
+    const text = isOpen ? 'Close' : 'Open';
+    const cssClass = isOpen ? 'fa-long-arrow-up' : 'fa-long-arrow-down';
 
-    const textSpan = document.createElement("span");
+    const textSpan = document.createElement('span');
     textSpan.innerText = text;
 
-    const icon = document.createElement("i");
-    icon.setAttribute("id", helpButtonId);
-    icon.classList.add("fa");
+    const icon = document.createElement('i');
+    icon.setAttribute('id', helpButtonId);
+    icon.classList.add('fa');
     icon.classList.add(cssClass);
 
     helpHeader.appendChild(textSpan);
@@ -44,10 +44,10 @@ class HelpBox extends HTMLElement {
   }
 
   render() {
-    this.innerHTML = require("./template.pug");
+    this.innerHTML = require('./template.pug');
     let helpHeader = document.getElementById(helpButtonId);
     helpHeader.addEventListener(
-      "click",
+      'click',
       function() {
         this.collapseHelperBox(helpHeader);
       }.bind(this)
