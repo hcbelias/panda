@@ -1,4 +1,7 @@
-import './style.scss';
+import "./style.scss";
+const helpButtonId = "help-box-header-button";
+const helpContentOpenClass = "help-box__content-open";
+const helpBoxContentContainerId = "help-box-content-container";
 
 class HelpBox extends HTMLElement {
   constructor() {
@@ -9,39 +12,44 @@ class HelpBox extends HTMLElement {
     this.render();
   }
 
+  collapseHelperBox(helpHeader) {
+    const openAttribute = "is-open";
+    let isOpen = !helpHeader.getAttribute(openAttribute);
+    let helpBoxContentContainer = document.getElementById(
+      helpBoxContentContainerId
+    );
+    helpHeader.innerText = "";
+
+    const text = isOpen ? "Close" : "Open";
+    const cssClass = isOpen ? "fa-long-arrow-up" : "fa-long-arrow-down";
+
+    const textSpan = document.createElement("span");
+    textSpan.innerText = text;
+
+    const icon = document.createElement("i");
+    icon.setAttribute("id", helpButtonId);
+    icon.classList.add("fa");
+    icon.classList.add(cssClass);
+
+    helpHeader.appendChild(textSpan);
+    helpHeader.appendChild(icon);
+
+    if (isOpen) {
+      helpHeader.setAttribute(openAttribute, true);
+      helpBoxContentContainer.classList.add(helpContentOpenClass);
+    } else {
+      helpHeader.removeAttribute(openAttribute);
+      helpBoxContentContainer.classList.remove(helpContentOpenClass);
+    }
+  }
+
   render() {
-    this.innerHTML = require('./template.pug');
-    const helpButtonId = 'help-box-header-button';
+    this.innerHTML = require("./template.pug");
     let helpHeader = document.getElementById(helpButtonId);
     helpHeader.addEventListener(
-      'click',
+      "click",
       function() {
-        const openAttribute = 'is-open';
-        let isOpen = !helpHeader.getAttribute(openAttribute);
-        const openContentClassName = 'help-box__content-open';
-        let helpBoxContentContainer = document.getElementById(
-          'help-box-content-container'
-        );
-        helpHeader.innerText = '';
-
-        const text = isOpen ? 'Close' : 'Open';
-        const cssClass = isOpen ? 'fa-long-arrow-up' : 'fa-long-arrow-down';
-        const textSpan = document.createElement('span');
-        textSpan.innerText = text;
-        const icon = document.createElement('i');
-        icon.setAttribute('id', helpButtonId);
-        icon.classList.add('fa');
-        icon.classList.add(cssClass);
-        helpHeader.appendChild(textSpan);
-        helpHeader.appendChild(icon);
-
-        if (isOpen) {
-          helpHeader.setAttribute(openAttribute, true);
-          helpBoxContentContainer.classList.add(openContentClassName);
-        } else {
-          helpHeader.removeAttribute(openAttribute);
-          helpBoxContentContainer.classList.remove(openContentClassName);
-        }
+        this.collapseHelperBox(helpHeader);
       }.bind(this)
     );
   }

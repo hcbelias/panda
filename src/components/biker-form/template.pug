@@ -5,13 +5,18 @@
       .biker-form__inputGroup--left
         .biker-form__input
           label(for='fullName') Full name
-          input(name='fullName' )
+          input(name='fullName' required )
+          label Instruction to show on input focus
         .biker-form__input
           label(for='email') E-mail
-          input(name='email' )
+          input(name='email' required)
+          label Instruction to show on input focus
         .biker-form__input
-          label(for='city') City
+          .biker-form__labelContainer
+            label.biker-form__primaryLabel(for='city') City
+            label.biker-form__secondaryLabel(for='city') Optional
           input(name='city' )
+          label Instruction to show on input focus
       .biker-form__inputGroup--right
         .biker-form__input
           label(for='rideInGroup') Ride in Group?
@@ -45,6 +50,6 @@
             
         .biker-form__buttonGroup
           .biker-form__button
-            button.biker-form__button-cancel(id='biker-form__cancelButton') Cancel
+            button.biker-form__button-cancel#biker-form__cancelButton Cancel
           .biker-form__button
-            button.biker-form__button-save(id='biker-form__saveButton') Save
+            button.biker-form__button-save#biker-form__saveButton Save

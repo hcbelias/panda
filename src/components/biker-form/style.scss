@@ -47,11 +47,36 @@ $block-name: "biker-form";
         border: 1px $color-base-light solid;
         border-radius: 3px;
         box-shadow: none;
+        &+label {
+            display: none;
+            font-size: 11px;
+            color: $color-base;
+            font-weight: 100;
+            padding-top: 10px;
+            transition: 0.2 ease;
+        }
         &:focus {
             outline-color: $color-panda;
             outline-width: 3px;
+            &+label {
+                display: block;
+            }
         }
     }
+}
+
+.#{$block-name}__labelContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.#{$block-name}__primaryLabel {
+    flex-grow: 1;
+}
+
+.#{$block-name}__secondaryLabel {
+    color: $color-base;
+    text-transform: lowercase;
 }
 
 .#{$block-name}__radioboxGroup {
@@ -76,7 +101,7 @@ $block-name: "biker-form";
     }
     [type="radio"]:checked+label:before,
     [type="radio"]:not(:checked)+label:before {
-        content: '';
+        content: "";
         position: absolute;
         left: 0;
         top: 0;
@@ -91,7 +116,7 @@ $block-name: "biker-form";
     }
     [type="radio"]:checked+label:after,
     [type="radio"]:not(:checked)+label:after {
-        content: '';
+        content: "";
         width: 10px;
         height: 10px;
         background: black;
@@ -119,9 +144,7 @@ $block-name: "biker-form";
     [type="checkbox"]:not(:checked):focus+label:before {
         border: 2px dotted $color-panda;
     }
-    
     flex-direction: row;
-
     [type="checkbox"]:checked,
     [type="checkbox"]:not(:checked) {
         position: absolute;
@@ -142,7 +165,7 @@ $block-name: "biker-form";
     }
     [type="checkbox"]:checked+label:before,
     [type="checkbox"]:not(:checked)+label:before {
-        content: '';
+        content: "";
         position: absolute;
         left: 0;
         top: 0;
@@ -155,11 +178,11 @@ $block-name: "biker-form";
     [type="checkbox"]:checked+label:before {
         border: 1px solid $color-panda;
     }
-    [type="checkbox"]:checked+label:after{
-        content: '';
+    [type="checkbox"]:checked+label:after {
+        content: "";
         width: 10px;
         height: 10px;
-        content: '\2713';
+        content: "\2713";
         background: transparent;
         position: absolute;
         top: 0px;
@@ -212,7 +235,7 @@ $block-name: "biker-form";
     background-color: $color-panda;
     color: white;
     &:hover {
-        background-color: rgba($color: $color-panda, $alpha: 0.6)
+        background-color: rgba($color: $color-panda, $alpha: 0.6);
     }
 }
 
