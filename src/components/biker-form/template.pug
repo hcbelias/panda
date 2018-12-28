@@ -2,7 +2,7 @@
   .biker-form__header user registration
   .biker-form__content
     form#biker-form.biker-form__form(name='user-registration')
-      .biker-form__inputGroup
+      .biker-form__inputGroup--left
         .biker-form__input
           label(for='fullName') Full name
           input(name='fullName' )
@@ -12,22 +12,74 @@
         .biker-form__input
           label(for='city') City
           input(name='city' )
-      .biker-form__inputGroup
+      .biker-form__inputGroup--right
         .biker-form__input
           label(for='rideInGroup') Ride in Group?
-          .biker-form__checkboxGroup
-            input(type="radio" name="rideInGroup" value="0") 
-            | Always
-            input(type="radio" name="rideInGroup" value="1") 
-            | Sometimes
-            input(type="radio" name="rideInGroup" value="2") 
-            | Never
+          .biker-form__radioboxGroup
+            span
+              input(type="radio" name="rideInGroup" value="0" id='radio_0' checked='') 
+              label(for='radio_0') Always
+            span
+              input(type="radio" name="rideInGroup" value="1"  id='radio_1') 
+              label(for='radio_1') Sometimes
+            span
+              input(type="radio" name="rideInGroup" value="2"  id='radio_2') 
+              label(for='radio_2') Never
         .biker-form__input
-          label(for='email') Days of the week
-          input(name='email' )
+          label Days of the week
+          .biker-form__checkboxGroup
+            
+            p
+              input#sun(type='checkbox' name='sun' )
+              label(for='sun') Sun
+            p
+              input(type='checkbox' name='mon' )
+              label(for='mon') Mon
+            p
+              input(type='checkbox' name='tue' )
+              label(for='tue') Tue
+            p
+              input(type='checkbox' name='wed' )
+              label(for='wed') Wed
+            p
+              input(type='checkbox' name='thu' )
+              label(for='thu') Thu
+            p
+              input(type='checkbox' name='fri')
+              label(for='fri') Fri
+            p
+              input(type='checkbox' name='sat')
+              label(for='sat') Sat
+            p
+              input#test1(type='checkbox')
+              label(for='test1') Red
+            p
+              input#test2(type='checkbox')
+              label(for='test2') Yellow
+            p
+              input#test3(type='checkbox')
+              label(for='test3') Green
+            p
+              input#test4(type='checkbox')
+              label(for='test4') Brown
+
         .biker-form__buttonGroup
           .biker-form__button
             button.biker-form__button-cancel(id='biker-form__cancelButton') Cancel
           .biker-form__button
             button.biker-form__button-save(id='biker-form__saveButton') Save
+input(type='checkbox' name='sun' value='0' )
+label(for='sun') Sun
+input(type='checkbox' name='mon' value='1')
+label(for='mon') Mon
+input(type='checkbox' name='tue' value='2')
+label(for='tue') Tue
+input(type='checkbox' name='wed' value='3')
+label(for='wed') Wed
+input(type='checkbox' name='thu' value='4')
+label(for='thu') Thu
+input(type='checkbox' name='fri' value='5')
+label(for='fri') Fri
+input(type='checkbox' name='sat' value='6')
+label(for='sat') Sat
 
