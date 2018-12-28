@@ -6,7 +6,7 @@ Mostly for Modern Browsers
 
 ### REQUIREMENTS
 
-- Node 8.2 or higher(We will use npx command)
+- Node 8.2 or higher
 - npm 5.2.0 or higher
 
 ### DEVELOP
