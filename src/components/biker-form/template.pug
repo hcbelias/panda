@@ -5,17 +5,17 @@
       .biker-form__inputGroup--left
         .biker-form__input
           label(for='fullName') Full name
-          input(name='fullName' required )
+          input#name(name='fullName' required )
           label Instruction to show on input focus
         .biker-form__input
           label(for='email') E-mail
-          input(name='email' required)
+          input#email(name='email' required)
           label Instruction to show on input focus
         .biker-form__input
           .biker-form__labelContainer
             label.biker-form__primaryLabel(for='city') City
             label.biker-form__secondaryLabel(for='city') Optional
-          input(name='city' )
+          input#city(name='city' )
           label Instruction to show on input focus
       .biker-form__inputGroup--right
         .biker-form__input
@@ -33,20 +33,20 @@
         .biker-form__input
           label Days of the week
           .biker-form__checkboxGroup
-            input#sun(type='checkbox' name='sun' value='0' )
-            label(for='sun') Sun
-            input#mon(type='checkbox' name='mon' value='1')
-            label(for='mon') Mon
-            input#tue(type='checkbox' name='tue' value='2')
-            label(for='tue') Tue
-            input#wed(type='checkbox' name='wed' value='3')
-            label(for='wed') Wed
-            input#thu(type='checkbox' name='thu' value='4')
-            label(for='thu') Thu
-            input#fri(type='checkbox' name='fri' value='5')
-            label(for='fri') Fri
-            input#sat(type='checkbox' name='sat' value='6')
-            label(for='sat') Sat
+            input#check_0(type='checkbox' value='0' )
+            label(for='check_0') Sun
+            input#check_1(type='checkbox' value='1')
+            label(for='check_1') Mon
+            input#check_2(type='checkbox' value='2')
+            label(for='check_2') Tue
+            input#check_3(type='checkbox' value='3')
+            label(for='check_3') Wed
+            input#check_4(type='checkbox' value='4')
+            label(for='check_4') Thu
+            input#check_5(type='checkbox' value='5')
+            label(for='check_5') Fri
+            input#check_6(type='checkbox' value='6')
+            label(for='check_6') Sat
             
         .biker-form__buttonGroup
           .biker-form__button

@@ -42,7 +42,8 @@ $block-name: "biker-form";
         font-weight: 700;
     }
     input {
-        padding: 5px;
+        padding: 5px 10px;
+
         line-height: 20px;
         border: 1px $color-base-light solid;
         border-radius: 3px;
@@ -52,7 +53,6 @@ $block-name: "biker-form";
             font-size: 11px;
             color: $color-base;
             font-weight: 100;
-            padding-top: 10px;
             transition: 0.2 ease;
         }
         &:focus {
@@ -187,8 +187,7 @@ $block-name: "biker-form";
         position: absolute;
         top: 0px;
         color: black;
-        left: 3px;
-        -webkit-transition: all 0.2s ease;
+        left: 7px;
         transition: all 0.2s ease;
     }
     [type="checkbox"]:not(:checked)+label:after {
@@ -250,10 +249,11 @@ $block-name: "biker-form";
 @media screen and (min-width: 490px) {
     .#{$block-name}__inputGroup {
         &--left {
-            margin-right: 80px;
+            flex-grow: 4;
+            margin-right: 100px;
         }
         &--right {
-            margin-left: 80px;
+            flex-grow: 3;
         }
     }
     .#{$block-name}__buttonGroup,
