@@ -6,7 +6,7 @@ import HelpBox from './components/help-box';
 import BikerForm from './components/biker-form';
 import Breadcrumb from './components/breadcrumb';
 import Navbar from './components/navbar';
-import TableList from './components/table-list';
+import { TableList } from './components/table-list';
 import Footer from './components/footer';
 import Divider from './components/divider';
 

@@ -1,6 +1,61 @@
 import './style.scss';
 const tableListId = 'dynamicTable';
 
+function createRowData(tableBody, item) {
+  let newRow = addRow(tableBody);
+  addColumn(newRow, item.name);
+  addColumn(newRow, item.email);
+  addColumn(newRow, item.city);
+  addColumn(newRow, getRideInGroupLabel(item.rideInGroup));
+  addColumn(newRow, getDaysOfTheWeekLabel(item.daysOfTheWeek));
+  let date = new Date(item.registrationDay);
+  addDateColumn(newRow, date);
+  let deleteButton = addDeleteColumn(newRow, item.name);
+  let clickFunction = function customClickFunction(event) {
+    event.currentTarget.parentElement.remove();
+  };
+  deleteButton.addEventListener('click', clickFunction);
+}
+
+function addRow(table) {
+  let newRow = table.insertRow();
+  newRow.classList.add('table-list__tableRow');
+  return newRow;
+}
+
+function addColumn(row, value) {
+  let column = row.insertCell();
+  column.classList.add('table-list__tableColumn');
+  column.innerText = value;
+  return column;
+}
+
+function addDeleteColumn(row, name) {
+  let column = row.insertCell();
+  column.classList.add('table-list__tableDeleteColumn');
+  let buttonDelete = document.createElement('i');
+  buttonDelete.classList.add('fa');
+  buttonDelete.classList.add('fa-trash-o');
+  buttonDelete.setAttribute('title', `Remove row: ${name}`);
+  column.appendChild(buttonDelete);
+  return column;
+}
+
+function addDateColumn(row, date) {
+  let column = row.insertCell();
+  column.classList.add('table-list__tableColumn');
+  let spanDate = document.createElement('span');
+  spanDate.classList.add('table-list__dateColumn');
+  spanDate.innerText = date.toLocaleDateString('en-US');
+  let spanTime = document.createElement('span');
+  spanTime.classList.add('table-list__timeColumn');
+  spanTime.innerText = date.toLocaleTimeString('en-US');
+
+  column.appendChild(spanDate);
+  column.appendChild(spanTime);
+  return column;
+}
+
 function getRideInGroupLabel(value) {
   switch (value) {
   case 0:
@@ -10,7 +65,7 @@ function getRideInGroupLabel(value) {
   case 2:
     return 'Never';
   default:
-    return '--';
+    return '';
   }
 }
 
@@ -24,7 +79,6 @@ function getDaysOfTheWeekLabel(value) {
   let hasSaturday = value.includes(6);
   let isWeekend = value.length === 2 && hasSunday && hasSaturday;
   let isWeekDays =
-    !isWeekend &&
     value.length === 5 &&
     hasMonday &&
     hasTuesday &&
@@ -32,8 +86,6 @@ function getDaysOfTheWeekLabel(value) {
     hasThursday &&
     hasFriday;
   let isEveryday =
-    !isWeekend &&
-    !isWeekDays &&
     value.length === 7 &&
     hasSunday &&
     hasMonday &&
@@ -79,64 +131,9 @@ class TableList extends HTMLElement {
     let table = document.getElementById(tableListId);
     let tableBody = table.createTBody();
     data.forEach((item, index) => {
-      this.createRowData(tableBody, item, index);
+      createRowData(tableBody, item, index);
     });
-  }
-
-  createRowData(tableBody, item, index) {
-    let newRow = this.addRow(tableBody);
-    this.addColumn(newRow, item.name);
-    this.addColumn(newRow, item.email);
-    this.addColumn(newRow, item.city);
-    this.addColumn(newRow, getRideInGroupLabel(item.rideInGroup));
-    this.addColumn(newRow, getDaysOfTheWeekLabel(item.daysOfTheWeek));
-    let date = new Date(item.registrationDay);
-    this.addDateColumn(newRow, date);
-    let deleteButton = this.addDeleteColumn(newRow, index);
-    let clickFunction = function customClickFunction(event) {
-      event.currentTarget.parentElement.remove();
-    };
-    deleteButton.addEventListener('click', clickFunction);
-  }
-
-  addRow(table) {
-    let newRow = table.insertRow();
-    newRow.classList.add('table-list__tableRow');
-    return newRow;
-  }
-
-  addColumn(row, value) {
-    let column = row.insertCell();
-    column.classList.add('table-list__tableColumn');
-    column.innerText = value;
-    return column;
-  }
-
-  addDeleteColumn(row, index) {
-    let column = row.insertCell();
-    column.classList.add('table-list__tableDeleteColumn');
-    let buttonDelete = document.createElement('i');
-    buttonDelete.classList.add('fa');
-    buttonDelete.classList.add('fa-trash-o');
-    buttonDelete.setAttribute('title', `Remove row: ${index + 1}`);
-    column.appendChild(buttonDelete);
-    return column;
-  }
-
-  addDateColumn(row, date) {
-    let column = row.insertCell();
-    column.classList.add('table-list__tableColumn');
-    let spanDate = document.createElement('span');
-    spanDate.classList.add('table-list__dateColumn');
-    spanDate.innerText = date.toLocaleDateString('en-US');
-    let spanTime = document.createElement('span');
-    spanTime.classList.add('table-list__timeColumn');
-    spanTime.innerText = date.toLocaleTimeString('en-US');
-
-    column.appendChild(spanDate);
-    column.appendChild(spanTime);
-    return column;
   }
 }
 
-export default TableList;
+export { TableList, createRowData };
